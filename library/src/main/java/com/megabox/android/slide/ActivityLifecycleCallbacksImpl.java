@@ -8,7 +8,7 @@ import android.os.Bundle;
  * @author lihong
  * @date 2016/07/20
  */
-public class ActivityLifecycleCallbacksImpl implements Application.ActivityLifecycleCallbacks {
+class ActivityLifecycleCallbacksImpl implements Application.ActivityLifecycleCallbacks {
     @Override
     public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
 

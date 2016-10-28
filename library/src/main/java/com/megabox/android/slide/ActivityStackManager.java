@@ -9,7 +9,7 @@ import java.util.LinkedList;
  * @author lihong
  * @since 2016/10/28
  */
-public final class ActivityStackManager {
+final class ActivityStackManager {
     /**
      * TAG
      */

@@ -30,7 +30,7 @@ import java.util.ArrayList;
  * @author lihong
  * @since 2016-3-10
  */
-public class SlideFrameLayout extends ViewGroup {
+class SlideFrameLayout extends ViewGroup {
     /**
      * 滑动的监听器
      */
@@ -158,8 +158,6 @@ public class SlideFrameLayout extends ViewGroup {
 
     /**
      * 构造方法
-     *
-     * @param context
      */
     public SlideFrameLayout(Context context) {
         this(context, null);
@@ -167,9 +165,6 @@ public class SlideFrameLayout extends ViewGroup {
 
     /**
      * 构造方法
-     *
-     * @param context
-     * @param attrs
      */
     public SlideFrameLayout(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
@@ -177,10 +172,6 @@ public class SlideFrameLayout extends ViewGroup {
 
     /**
      * 构造方法
-     *
-     * @param context
-     * @param attrs
-     * @param defStyle
      */
     public SlideFrameLayout(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
@@ -211,7 +202,7 @@ public class SlideFrameLayout extends ViewGroup {
     /**
      * 设置滑动边缘的大小，用来响应滑动事件
      *
-     * @param offset
+     * @param offset offset
      */
     public void setEdgeSize(int offset) {
         mEdgeSize = offset;
@@ -220,7 +211,7 @@ public class SlideFrameLayout extends ViewGroup {
     /**
      * 是否可以滑动
      *
-     * @return
+     * @return true/false
      */
     public boolean isSlideable() {
         return mCanSlide;
