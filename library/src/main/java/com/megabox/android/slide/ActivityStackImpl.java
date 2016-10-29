@@ -3,13 +3,12 @@ package com.megabox.android.slide;
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 
 /**
  * @author lihong
  * @since 2016/10/28
  */
-public class ActivityStackImpl extends AppCompatActivity implements ActivityInterface {
+class ActivityStackImpl extends Activity implements ActivityInterface {
 
     private Application.ActivityLifecycleCallbacks mActivityLifecycleCallbacks;
 

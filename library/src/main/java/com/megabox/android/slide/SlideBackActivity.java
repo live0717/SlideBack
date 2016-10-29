@@ -89,8 +89,7 @@ public class SlideBackActivity extends ActivityStackImpl implements SlideFrameLa
             if (DEBUG) {
                 Log.i(TAG, "SlideActivity mFinishTask.run()   finish activity.");
             }
-            finish();
-            overridePendingTransition(0, 0);
+            doRealFinishForSlide();
         }
     };
 
@@ -172,8 +171,7 @@ public class SlideBackActivity extends ActivityStackImpl implements SlideFrameLa
         if (mNeedFinishActivityFlag && !settling) {
             // 移除task任务
             mSlideFrameLayout.removeCallbacks(mFinishTask);
-            finish();
-            overridePendingTransition(0, 0);
+            doRealFinishForSlide();
         }
     }
 
@@ -189,6 +187,24 @@ public class SlideBackActivity extends ActivityStackImpl implements SlideFrameLa
         super.onDestroy();
 
         release();
+    }
+
+    /**
+     * 设置边缘的阴影的资源
+     *
+     * @param resId
+     */
+    public void setShadowResource(int resId) {
+        if (mSlideFrameLayout != null) {
+            mSlideFrameLayout.setShadowResource(resId);
+        }
+    }
+
+    /**
+     * 当滑动返回时调用，派生类可以重写这个方法，例如可以在这个方法中作一些统计工作，来记录关闭activity的行为
+     */
+    public void onSlideBack() {
+
     }
 
     /**
@@ -216,6 +232,15 @@ public class SlideBackActivity extends ActivityStackImpl implements SlideFrameLa
      */
     public void setPreviousActivitySlideFollow(boolean flag) {
         mPreviousActivitySlideFollow = flag;
+    }
+
+    /**
+     * 执行finish动作
+     */
+    private void doRealFinishForSlide() {
+        finish();
+        overridePendingTransition(0, 0);
+        onSlideBack();
     }
 
     /**

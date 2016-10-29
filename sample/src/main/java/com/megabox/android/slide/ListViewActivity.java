@@ -1,25 +1,71 @@
 package com.megabox.android.slide;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 /**
  * @author lihong
  * @since 2016/10/28
  */
-public class ListViewActivity extends SlideBackActivity {
+public class ListViewActivity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        TextView textView = new TextView(this);
-        textView.setGravity(Gravity.CENTER);
-        textView.setTextSize(30);
-        textView.setBackgroundColor(Color.parseColor("#eeff0000"));
-        textView.setText("This is TEXTVIEW");
-        textView.setTextColor(Color.WHITE);
-        setContentView(textView);
+        ListView listView = new ListView(this);
+        listView.setAdapter(new BaseAdapter() {
+            @Override
+            public int getCount() {
+                return 30;
+            }
+
+            @Override
+            public Object getItem(int position) {
+                return null;
+            }
+
+            @Override
+            public long getItemId(int position) {
+                return 0;
+            }
+
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                if (convertView == null) {
+                    TextView textView = (TextView) LayoutInflater.from(ListViewActivity.this)
+                        .inflate(android.R.layout.simple_list_item_1, parent, false);
+
+                    textView.setGravity(Gravity.CENTER_VERTICAL);
+                    textView.setPadding(30, 0, 0, 0);
+                    textView.setTextSize(20);
+                    textView.setTextColor(Color.BLACK);
+                    convertView = textView;
+                }
+
+                TextView textView = (TextView) convertView;
+                textView.setText("Item " + String.valueOf(position + 1));
+
+                return convertView;
+            }
+        });
+
+        setContentView(listView);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ListViewActivity.this, ListViewActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 }

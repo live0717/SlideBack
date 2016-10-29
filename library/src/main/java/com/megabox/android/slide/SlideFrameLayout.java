@@ -1271,5 +1271,12 @@ class SlideFrameLayout extends ViewGroup {
                 mHostView.draw(canvas);
             }
         }
+
+        @Override
+        protected void onDetachedFromWindow() {
+            super.onDetachedFromWindow();
+
+            mHostView = null;
+        }
     }
 }
