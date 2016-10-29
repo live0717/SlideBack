@@ -172,6 +172,7 @@ SlideFrameLayout：1
 
 请关注：
 
+* [Android滑动返回交互（SlideBack for Android）](http://www.jianshu.com/p/cd920718c9fa)
 * [我的GitHub](https://github.com/leehong2005)
 * [我的GitHub博客](http://leehong2005.com)
 
