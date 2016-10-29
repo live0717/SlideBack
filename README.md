@@ -31,7 +31,7 @@
 
 以下是效果图，就没生成 gif 动图了，关键是不知道怎么搞～～
 
-![](img/img1.png)
+![](imgs/img1.png)
 
 *图一：运行效果截图*
 
@@ -95,7 +95,7 @@ public class MainActivity extends ActionBarActivity {
 
 使用了继承的设计，相当于在以前的继承关系中插入了一层，大概的类图如下所示：
 
-![](img/img2.png)
+![](imgs/img2.png)
 
 *图二：设计的框架结果，应用层的 Activity 继承自框架中的 `SlideBackActivity`*
 
@@ -107,7 +107,7 @@ SlideFrameLayout：1
 
 也就是说，PreviewView 在最下面，SlideFrameLayout 在最上在，对用户可见，当用户开始滑动时，把上面的 SlideFrameLayout 进行偏移，那么自然就看到下在的 PreviewView 了。 如下图所示：
 
-![](img/img3.png)
+![](imgs/img3.png)
 
 *图三：`SlideFrameLayout` 与 `PreviewView` 的Z轴关系*
 
