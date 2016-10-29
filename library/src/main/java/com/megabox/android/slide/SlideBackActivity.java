@@ -18,7 +18,7 @@ import android.view.ViewGroup;
  * @author lihong
  * @since 2016/03/10
  */
-public class SlideBackActivity extends ActivityStackImpl implements SlideFrameLayout.SlidingListener {
+public class SlideBackActivity extends ActivityInterfaceImpl implements SlideFrameLayout.SlidingListener {
     /**
      * DEBUG
      */

@@ -1,6 +1,6 @@
 # SlideBack 
 
-`SlideBack` 项目实现了类似 `iOS` 左侧滑动返回交互的功能，`Android` 平台做得最早的应该是微信，即使到了现在，有滑动返回功能的App也不是很多，就算有，做得极致的也比较少。
+[SlideBack](https://github.com/leehong2005/SlideBack) 项目实现了类似 `iOS` 左侧滑动返回交互的功能，`Android` 平台做得最早的应该是微信，即使到了现在，有滑动返回功能的App也不是很多，就算有，做得极致的也比较少。
 
 滑动返回功能目前我已经使用在自己的项目中了，也发现了不少问题，现在坑基本都填平了，一直就想放到 GitHub 上面来，迟迟等到今天是因为我认为始终还没达到一个完美的状态。该功能的实现最开始其实也从系统提供的组件中找到了一些灵感，典型的就是 `SlidePannel`，左侧菜单， Google 原生的 Android 应用基本都有这样的交互设计。站在前人的肩膀上，经过一番设计加工，也就有了现在的实现。
 
@@ -32,6 +32,7 @@
 以下是效果图，就没生成 gif 动图了，关键是不知道怎么搞～～
 
 ![](img/img1.png)
+
 *图一：运行效果截图*
 
 
@@ -46,7 +47,7 @@
 
 框架的实现思路是通过继承的方式来实现的，虽然可能会更改使用方式的继承关系，但考虑到一般情况下，应用层都会有自己的统一的 Activity 基类，例如 `BaseActivity`、`ActionBarActivity` 之类的，其实修改一下这个基类的父类，就可以了。
 
-这个框架，对外提供的API就一个类：**`SlideBackActivity `**。
+这个框架，对外暴露提供的API就一个类：**`SlideBackActivity `**。
 
 以下是使用方法，看好了
 
@@ -61,7 +62,7 @@ public class ActionBarActivity extends SlideBackActivity {
 
 **重点是：这里只需要把 `ActionBarActivity` 的基类改成 `SlideBackActivity` 即可。**
 
-来看一下 `MainActivity` 的用法：
+来看一下 sample 中的 `MainActivity` 的用法：
 
 ```java
 public class MainActivity extends ActionBarActivity {
@@ -81,12 +82,12 @@ public class MainActivity extends ActionBarActivity {
 
 ### 几个API说明
 
-* void setSlideable(boolean) —— 设置滑动返回是否可用，`false`不可用，默认为`true`
-* void setPreviousActivitySlideFollow(boolean) —— 设置前一个activity的页面是否跟随滑动面一起滑动，`false`不滑动，默认为`true`
-* void onSlideBack() —— 滑动退出时调用的回调方法，派生类可以重写这个方法，例如可以做一些统计工作，统计关闭activity的方式，多少是滑动返回关闭的
-* void setShadowResource(int) —— 设置阴影的资源id，一般都是写一个shape drawable
+* **void setSlideable(boolean)** —— 设置滑动返回是否可用，`false`不可用，默认为`true`
+* **void setPreviousActivitySlideFollow(boolean)** —— 设置前一个activity的页面是否跟随滑动面一起滑动，`false`不滑动，默认为`true`
+* **void onSlideBack()** —— 滑动退出时调用的回调方法，派生类可以重写这个方法，例如可以做一些统计工作，统计关闭activity的方式，多少是滑动返回关闭的
+* **void setShadowResource(int)** —— 设置阴影的资源id，一般都是写一个shape drawable
 
->真正大家需要关心的也前这么几个，严格来说，一般都只关心关两个就足够了～～
+>真正大家需要关心的也前这么几个，严格来说，一般都只关心前两个就足够了～～
 
 ## 设计思考
 
@@ -95,6 +96,7 @@ public class MainActivity extends ActionBarActivity {
 使用了继承的设计，相当于在以前的继承关系中插入了一层，大概的类图如下所示：
 
 ![](img/img2.png)
+
 *图二：设计的框架结果，应用层的 Activity 继承自框架中的 `SlideBackActivity`*
 
 
@@ -106,6 +108,7 @@ SlideFrameLayout：1
 也就是说，PreviewView 在最下面，SlideFrameLayout 在最上在，对用户可见，当用户开始滑动时，把上面的 SlideFrameLayout 进行偏移，那么自然就看到下在的 PreviewView 了。 如下图所示：
 
 ![](img/img3.png)
+
 *图三：`SlideFrameLayout` 与 `PreviewView` 的Z轴关系*
 
 #### 显示前一个页面
@@ -160,14 +163,34 @@ SlideFrameLayout：1
 
 ## 缺点
 
-* 转屏可能会存在问题，不过中国特色下面，一般能转屏的还真不多见，所以这个问题就不是特别突显
+* 转屏可能会存在问题，不过中国特色移动互联网里面，一般能转屏的还真不多见，所以这个问题就不是特别突显
 * 修改了继承关系，如果应用层的 BaseActivity 是继承自 `FragmentActivity`，`AppCompatActivity` 的话，可能会有些问题，那么也必须把 `SlideBackActivity` 的基类也改成这些类
 
 ## 小结
 
-**尽管我努力去做到高质量，但仍然可能存在问题，如果你在使用过程中，发现了任何问题，或者用得不爽的，可以反馈给我。**
+**尽管我努力去做到高质量，但仍然可能存在问题，如果你在使用过程中，发现了任何问题，或者用得不爽的，可以反馈给我，欢迎同仁一起探讨交流！**
 
 请关注：
 
-* [GitHub](https://github.com/leehong2005)
-* [GitHub博客](http://leehong2005.com)
+* [我的GitHub](https://github.com/leehong2005)
+* [我的GitHub博客](http://leehong2005.com)
+
+（完）
+
+# License
+
+```
+Copyright 2016 LiHong Inc. 
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+```

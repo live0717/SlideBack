@@ -5,10 +5,12 @@ import android.app.Application;
 import android.os.Bundle;
 
 /**
+ * 这个类用来管理 activity 的栈
+ *
  * @author lihong
  * @since 2016/10/28
  */
-class ActivityStackImpl extends Activity implements ActivityInterface {
+class ActivityInterfaceImpl extends Activity implements ActivityInterface {
 
     private Application.ActivityLifecycleCallbacks mActivityLifecycleCallbacks;
 

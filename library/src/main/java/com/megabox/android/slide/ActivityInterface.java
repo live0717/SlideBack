@@ -7,5 +7,10 @@ import android.app.Application;
  * @since 2016/10/28
  */
 public interface ActivityInterface {
+    /**
+     * Set the callback for activity lifecycle
+     *
+     * @param callbacks callbacks
+     */
     void setActivityLifecycleCallbacks(Application.ActivityLifecycleCallbacks callbacks);
 }
