@@ -9,7 +9,7 @@
 
 ```
 dependencies {
-    compile 'com.teprinciple:updateapputils:1.3.1'
+    compile 'com.teprinciple:slideback:1.2'
 }
 ```
 
@@ -26,7 +26,7 @@ dependencies {
     protected abstract int getContentViewId();
 ```
 
-
+就这样就ok了，其他关于API的相关设置，请看leehong2005的下文：
 
 
 
