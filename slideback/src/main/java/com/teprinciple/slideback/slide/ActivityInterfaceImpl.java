@@ -1,8 +1,9 @@
-package com.megabox.android.slide;
+package com.teprinciple.slideback.slide;
 
 import android.app.Activity;
 import android.app.Application;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 /**
  * 这个类用来管理 activity 的栈
@@ -10,7 +11,7 @@ import android.os.Bundle;
  * @author lihong
  * @since 2016/10/28
  */
-class ActivityInterfaceImpl extends Activity implements ActivityInterface {
+class ActivityInterfaceImpl extends AppCompatActivity implements ActivityInterface {
 
     private Application.ActivityLifecycleCallbacks mActivityLifecycleCallbacks;
 

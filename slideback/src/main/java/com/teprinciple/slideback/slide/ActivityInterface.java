@@ -1,4 +1,4 @@
-package com.megabox.android.slide;
+package com.teprinciple.slideback.slide;
 
 import android.app.Application;
 

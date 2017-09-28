@@ -1,4 +1,4 @@
-<manifest package="com.megabox.android.slide"
+<manifest package="com.teprinciple.slideback.slide"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application

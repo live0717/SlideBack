@@ -1,10 +1,9 @@
-package com.megabox.android.slide;
+package com.teprinciple.slideback;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-import com.megabox.android.slide.sample.R;
 
 public class MainActivity extends ActionBarActivity {
 

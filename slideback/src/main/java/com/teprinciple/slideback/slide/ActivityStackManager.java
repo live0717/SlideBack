@@ -1,7 +1,9 @@
-package com.megabox.android.slide;
+package com.teprinciple.slideback.slide;
 
 import android.app.Activity;
 import android.util.Log;
+
+import com.teprinciple.slideback.slide.BuildConfig;
 
 import java.util.LinkedList;
 

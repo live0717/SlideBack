@@ -1,4 +1,4 @@
-package com.megabox.android.slide;
+package com.teprinciple.slideback;
 
 import android.content.Intent;
 import android.graphics.Color;
