@@ -1,9 +1,30 @@
 # SlideBack
 
+仿微信侧滑退出页面
+
 ## 说明
 本项目forked from  [leehong2005/SlideBack](https://github.com/leehong2005/SlideBack)，个人做了少许修改，并将Library托管到jcenter，方便使用
 
 ## 快捷使用
+
+```
+dependencies {
+    compile 'com.teprinciple:updateapputils:1.3.1'
+}
+```
+
+在你的BaseActivity中：
+```
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(LayoutInflater.from(this).inflate(getContentViewId(),null));
+        ……
+
+    }
+
+    protected abstract int getContentViewId();
+```
 
 
 
