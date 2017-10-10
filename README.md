@@ -13,7 +13,7 @@ dependencies {
 }
 ```
 
-在你的BaseActivity中：
+在你的BaseActivity中(BaseActivity 需要继承 SlideBackActivity)：
 ```
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
